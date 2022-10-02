@@ -1,34 +1,28 @@
-import React from 'react';
-import Box from './Box/Box';
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
-import Section from './Section/Section';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchContacts } from '../redux/operations';
+import { Suspense, lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+// import { Loading } from 'notiflix/build/notiflix-loading-aio';
+
+const SharedLayout = lazy(() => import('./SharedLayout/SharedLayout'));
+
+const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
+
+const ContactsPage = lazy(() => import('./Pages/ContactPage/ContactsPage'));
+
+const Login = lazy(() => import('./Pages/LoginPage'));
+
+const RegisterPage = lazy(() => import('./Pages/RegisterPage/RegisterPage'));
 
 export function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <Box>
-      <Section title="PhoneBook">
-        <ToastContainer />
-        <ContactForm />
-      </Section>
-      <div>
-        <Section title="Contacts">
-          <Filter />
-          <ContactList />
-        </Section>
-      </div>
-    </Box>
+    <Suspense>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<RegisterPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
