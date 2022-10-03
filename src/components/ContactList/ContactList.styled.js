@@ -6,6 +6,11 @@ export const StyledList = styled.ul`
   max-height: 200px;
   min-width: 100px;
   overflow: auto;
+
+  @media screen and (min-width: 200px) and (max-width: 420px) {
+    padding: 10px;
+    height: 170px;
+  }
 `;
 
 export const StyledItem = styled.li`

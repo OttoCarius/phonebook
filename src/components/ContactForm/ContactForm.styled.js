@@ -51,4 +51,9 @@ export const StyledButton = styled.button`
   :focus {
     background-color: #adadad;
   }
+
+  @media screen and (max-width: 420px) {
+    width: 120px;
+    height: 40px;
+  }
 `;

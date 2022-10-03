@@ -15,4 +15,10 @@ export const StyledInput = styled.input`
   ::placeholder {
     text-align: center;
   }
+
+  @media screen and (min-width: 200px) and (max-width: 420px) {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;

@@ -1,4 +1,3 @@
-import React from 'react';
 import Box from '../../Box/Box';
 import ContactForm from '../../ContactForm/ContactForm';
 import ContactList from '../../ContactList/ContactList';
@@ -11,7 +10,7 @@ import { useEffect } from 'react';
 import { fetchContacts } from '../../../redux/operations';
 import { MainContainer } from './ContactPage.styled';
 
-export function ContactPage() {
+export default function ContactsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,12 +24,11 @@ export function ContactPage() {
           <ToastContainer />
           <ContactForm />
         </Section>
-        <div>
-          <Section title="Contacts">
-            <Filter />
-            <ContactList />
-          </Section>
-        </div>
+
+        <Section title="Contacts">
+          <Filter />
+          <ContactList />
+        </Section>
       </Box>
     </MainContainer>
   );

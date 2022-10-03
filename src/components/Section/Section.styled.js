@@ -18,4 +18,8 @@ export const StyledTitle = styled.h1`
   font-weight: ${p => p.theme.fontWeights.semiBold};
   padding: ${p => p.theme.space[4]}px;
   text-align: center;
+
+  @media screen and (min-width: 200px) and (max-width: 420px) {
+    padding: 5px;
+  }
 `;
