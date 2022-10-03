@@ -3,7 +3,7 @@ import bgImage from '../img/iphone2.png';
 
 const Box = styled.div`
   width: 420px;
-  min-height: 860px;
+  min-height: 850px;
 
   margin-left: auto;
   margin-right: auto;
@@ -24,8 +24,14 @@ const Box = styled.div`
     background-size: contain;
   }
 
+  @media screen and (min-width: 1700px) {
+    width: 440px;
+  }
   @media screen and (min-width: 2000px) {
-    width: 480px;
+    width: 550px;
+  }
+  @media screen and (min-width: 2200px) {
+    width: 600px;
   }
 `;
 
