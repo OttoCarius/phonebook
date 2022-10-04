@@ -21,4 +21,9 @@ export const StyledInput = styled.input`
     margin-left: auto;
     margin-right: auto;
   }
+
+  @media screen and (min-width: 2000px) {
+    width: 400px;
+    height: 40px;
+  }
 `;

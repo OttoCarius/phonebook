@@ -5,6 +5,9 @@ export const StyledSection = styled.section`
 
   flex-direction: column;
   align-items: center;
+  @media screen and (min-width: 2000px) {
+    margin-bottom: 30px;
+  }
 `;
 
 export const StyledTitle = styled.h1`

@@ -11,6 +11,12 @@ export const StyledList = styled.ul`
     padding: 10px;
     height: 170px;
   }
+
+  @media screen and (min-width: 2200px) {
+    width: 400px;
+    padding: 40px;
+    max-height: 400px;
+  }
 `;
 
 export const StyledItem = styled.li`

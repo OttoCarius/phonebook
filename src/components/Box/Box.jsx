@@ -26,12 +26,19 @@ const Box = styled.div`
 
   @media screen and (min-width: 1700px) {
     width: 440px;
+    height: 800px;
   }
   @media screen and (min-width: 2000px) {
     width: 550px;
+    height: 1100px;
   }
   @media screen and (min-width: 2200px) {
     width: 600px;
+    height: 1250px;
+  }
+
+  @media screen and (min-width: 2200px) {
+    width: 660px;
   }
 `;
 

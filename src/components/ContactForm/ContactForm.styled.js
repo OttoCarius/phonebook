@@ -20,6 +20,10 @@ export const StyledInput = styled.input`
   ::placeholder {
     text-align: center;
   }
+  @media screen and (min-width: 2000px) {
+    width: 360px;
+    height: 40px;
+  }
 `;
 
 export const StyledLabel = styled.label`
