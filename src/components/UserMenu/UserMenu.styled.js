@@ -3,27 +3,28 @@ import styled from 'styled-components';
 export const UserContainer = styled.div`
   display: flex;
   align-items: center;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+
   @media screen and (max-width: 991px) {
-    padding: 20px;
     margin-left: auto;
     margin-right: auto;
   }
 `;
 
 export const UserName = styled.p`
-  font-weight: 700;
+  font-weight: 600;
   color: #fff;
-  margin-right: 12px;
+  margin-right: 10px;
 `;
 
 export const ButtonLogOut = styled.button`
   border: none;
   outline: none;
-  padding: 2px 10px;
-  border-radius: 10px;
-  transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px;
+  border-radius: 20px;
+
   &:hover {
     background-color: #212529;
     color: #fff;

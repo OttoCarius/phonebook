@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, deleteContact } from './operations';
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+  updateContact,
+} from './operations';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const contactsSlice = createSlice({
@@ -50,9 +55,20 @@ const contactsSlice = createSlice({
       Loading.remove();
       state.error = payload;
     },
+    [updateContact.pending]: state => {
+      state.isLoading = true;
+    },
+    [updateContact.fulfilled]: (state, { payload }) => {
+      const index = state.items.findIndex(el => el.id === payload.id);
+      state.items[index] = payload;
+      state.isLoading = false;
+    },
+    [updateContact.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
   },
 });
-
 export const { changeFilter } = contactsSlice.actions;
 
 export const contactsReducer = contactsSlice.reducer;

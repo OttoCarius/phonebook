@@ -1,9 +1,13 @@
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import authSelectors from '../../../redux/auth/authSelectors';
 import { NavLink, Link } from 'react-router-dom';
 import { AuthNav } from '../../UserMenu/AuthMenu';
 import { UserMenu } from '../../UserMenu/UserMenu';
 
-export default function Header() {
+const Header = () => {
+  const user = useSelector(authSelectors.getIsLoggedIn);
+
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -20,17 +24,18 @@ export default function Header() {
               <Nav.Link active as={NavLink} to="/" end>
                 Home
               </Nav.Link>
-
-              <Nav.Link as={NavLink} to="/contacts">
-                Contacts
-              </Nav.Link>
+              {user && (
+                <Nav.Link as={NavLink} to="/contacts">
+                  Contacts
+                </Nav.Link>
+              )}
             </Nav>
-            <Nav>
-              <UserMenu /> <AuthNav />
-            </Nav>
+            <Nav>{user ? <UserMenu /> : <AuthNav />}</Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
     </>
   );
-}
+};
+
+export default Header;

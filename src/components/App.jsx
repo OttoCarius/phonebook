@@ -1,6 +1,8 @@
 import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
 
 const SharedLayout = lazy(() => import('./SharedLayout/SharedLayout'));
 
@@ -26,9 +28,30 @@ export function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="contacts" element={<ContactsPage />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<RegisterPage />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
         </Route>
       </Routes>
     </Suspense>
