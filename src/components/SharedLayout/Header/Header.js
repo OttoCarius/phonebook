@@ -4,6 +4,7 @@ import authSelectors from '../../../redux/auth/authSelectors';
 import { NavLink, Link } from 'react-router-dom';
 import { AuthNav } from '../../UserMenu/AuthMenu';
 import { UserMenu } from '../../UserMenu/UserMenu';
+import { GiSunglasses } from 'react-icons/gi';
 
 const Header = () => {
   const user = useSelector(authSelectors.getIsLoggedIn);
@@ -13,7 +14,8 @@ const Header = () => {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            Phonebook
+            Phoneb
+            <GiSunglasses color="white" size="45px" />k
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const UserContainer = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
   align-content: center;
@@ -15,8 +16,8 @@ export const UserContainer = styled.div`
 
 export const UserName = styled.p`
   font-weight: 600;
+  margin: 15px;
   color: #fff;
-  margin-right: 10px;
 `;
 
 export const ButtonLogOut = styled.button`
